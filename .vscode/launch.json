@@ -1,0 +1,13 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Debug (Attach)",
+            "projectName": "My Playstation",
+            "request": "attach",
+            "hostName": "localhost",
+            "port": 30303
+        }
+    ]
+}
