@@ -13,15 +13,13 @@
     See the License for the specific language governing permissions and
     limitations under the License.
 */-->
-${properties.text}"><br>
-----------------------------
-${properties.constraintMessage}
-========================<br>
-${properties.type} <br>
-**************************
-${properties.description} <br>
-=========================
-${properties.size}<br>
-*****************************
-${properties.linkURL}
+
+<sly data-sly-use.testobject ="com.play.core.models.HelloWorldModel">
+    ${testobject.text}<br>
+    ${testobject.constraintMessage}<br>
+    ${testobject.type}<br>
+    ${testobject.description}<br>
+    ${testobject.size}<br>
+    ${testobject.linkURL}<br>
+</sly>
 

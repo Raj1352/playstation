@@ -15,38 +15,29 @@
  */
 package com.play.core.models;
 
-import static org.apache.sling.api.resource.ResourceResolver.PROPERTY_RESOURCE_TYPE;
-
-import javax.annotation.PostConstruct;
-
+import com.day.cq.wcm.api.Page;
+import com.day.cq.wcm.api.PageManager;
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ResourceResolver;
 import org.apache.sling.models.annotations.Default;
 import org.apache.sling.models.annotations.Model;
 import org.apache.sling.models.annotations.injectorspecific.InjectionStrategy;
-import org.apache.sling.models.annotations.injectorspecific.OSGiService;
 import org.apache.sling.models.annotations.injectorspecific.SlingObject;
 import org.apache.sling.models.annotations.injectorspecific.ValueMapValue;
 
-import com.day.cq.wcm.api.Page;
-import com.day.cq.wcm.api.PageManager;
-
+import javax.annotation.PostConstruct;
 import java.util.Optional;
 
-@Model(adaptables = Resource.class)
-public class HelloWorldModel {
+import static org.apache.sling.api.resource.ResourceResolver.PROPERTY_RESOURCE_TYPE;
 
-    @ValueMapValue(name=PROPERTY_RESOURCE_TYPE, injectionStrategy=InjectionStrategy.OPTIONAL)
-    @Default(values="No resourceType")
-    protected String resourceType;
+@Model(adaptables = Resource.class)
+public class BannerModel {
+
 
     @ValueMapValue
     @Default
     protected String text;
 
-    @ValueMapValue
-    @Default
-    protected String constraintMessage;
 
     @ValueMapValue
     @Default
@@ -58,38 +49,15 @@ public class HelloWorldModel {
 
     @ValueMapValue
     @Default
-    protected String size;
+    protected String enableLink;
 
     @ValueMapValue
     @Default
     protected String linkURL;
 
 
-    @SlingObject
-    private Resource currentResource;
-    @SlingObject
-    private ResourceResolver resourceResolver;
-
-    private String message;
-
-    @PostConstruct
-    protected void init() {
-        PageManager pageManager = resourceResolver.adaptTo(PageManager.class);
-        String currentPagePath = Optional.ofNullable(pageManager)
-                .map(pm -> pm.getContainingPage(currentResource))
-                .map(Page::getPath).orElse("");
-
-        message = "Hello World!\n"
-            + "Resource type is: " + resourceType + "\n"
-            + "Current page is:  " + currentPagePath + "\n";
-    }
-
-    public String getMessage() {
-        return message;
-    }
-
-    public String getConstraintMessage() {
-        return constraintMessage;
+    public String getText() {
+        return text;
     }
 
     public String getType() {
@@ -100,8 +68,8 @@ public class HelloWorldModel {
         return description;
     }
 
-    public String getSize() {
-        return size;
+    public String getEnableLink() {
+        return enableLink;
     }
 
     public String getLinkURL() {
