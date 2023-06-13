@@ -1,6 +1,4 @@
-<sly data-sly-use.clientlib="/libs/granite/sightly/templates/clientlib.html"
-
-     data-sly-call="${clientlib.css @ categories=['my-clientlib-category']}"/>
+<sly data-sly-use.clientlib="/libs/granite/sightly/templates/clientlib.html" data-sly-call="${clientlib.css @ categories=['banner.base']}"/>
 
     <sly data-sly-use.testobject ="com.play.core.models.BannerModel">
         ${testobject.text}<br>
@@ -9,7 +7,6 @@
         ${testobject.enableLink}<br>
         ${testobject.linkURL}<br>
     </sly>
-<sly data-sly-use.clientlib="/libs/granite/sightly/templates/clientlib.html"
-     data-sly-call="${clientlib.js @ categories=['my-clientlib-category']}"/>
+<sly data-sly-use.clientlib="/libs/granite/sightly/templates/clientlib.html" data-sly-call="${clientlib.js @ categories=['banner.base']}"/>
 
 
