@@ -64,6 +64,10 @@ public class HelloWorldModel {
     @Default
     protected String linkURL;
 
+    @ValueMapValue
+    @Default
+    private String newVariable;
+
 
     @SlingObject
     private Resource currentResource;
@@ -106,5 +110,9 @@ public class HelloWorldModel {
 
     public String getLinkURL() {
         return linkURL;
+    }
+
+    public String getNewVariable() {
+        return newVariable;
     }
 }
